@@ -7,7 +7,7 @@ const {
 
 const RES = path.join(__dirname, "..", "results");
 const PAGE_W = 12240, PAGE_H = 15840;
-const GITHUB_URL = "https://github.com/<GITHUB_USERNAME>/edge-faas-container-benchmark";
+const GITHUB_URL = "https://github.com/zikosoft/predictive-prewarming-edge-serverless";
 
 function h(text, level) { return new Paragraph({ text, heading: level, spacing: { before: 240, after: 120 } }); }
 function p(text, opts = {}) { return new Paragraph({ children: [new TextRun({ text, ...opts })], spacing: { after: 160 } }); }

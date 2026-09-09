@@ -1,6 +1,6 @@
 {
-  "title": "edge-faas-container-benchmark",
-  "description": "Open, reproducible benchmarking harness comparing an always-on container deployment against reactive and predictively pre-warmed (EWMA, last-gap, moving-average, fixed-schedule) on-demand serverless deployments of an identical real-time telemetry-ingestion service, with matched-trial statistical analysis and a measured cost-latency model. Companion code and data for a manuscript in preparation.",
+  "title": "Predictive Pre-Warming for Edge Serverless Applications: Reproducible Benchmark and Dataset",
+  "description": "Open and reproducible experimental artifact for evaluating reactive and lightweight predictive pre-warming policies under capacity-bound bursty edge-serverless workloads. The archive includes the experimental harness, raw datasets, statistical-analysis scripts, resource-cost analysis, figures, and Kubernetes/Knative replication materials associated with the study.",
   "creators": [
     {
       "name": "Abidi, Zakaria",
@@ -12,12 +12,11 @@
   "upload_type": "software",
   "keywords": [
     "serverless computing",
-    "cold start",
-    "predictive autoscaling",
-    "container orchestration",
+    "predictive pre-warming",
+    "cold starts",
     "edge computing",
+    "predictive autoscaling",
     "reproducible research"
   ],
-  "related_identifiers": [],
   "access_right": "open"
 }

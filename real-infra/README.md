@@ -19,7 +19,7 @@ For the **predictive** policy, since Knative has no built-in pluggable forecaste
 ## Setup (one time, ~10-15 minutes)
 
 ```bash
-cd edge-faas-container-benchmark   # this repo, wherever you unzipped/cloned it
+cd predictive-prewarming-edge-serverless   # this repo, wherever you unzipped/cloned it
 
 # 1. Point kubectl at Docker Desktop's cluster
 kubectl config use-context docker-desktop

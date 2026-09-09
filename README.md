@@ -1,4 +1,4 @@
-# edge-faas-container-benchmark
+# predictive-prewarming-edge-serverless
 
 Open, fully reproducible benchmarking harness comparing an **always-on container** deployment against **on-demand (scale-to-zero) serverless-style** deployments — a purely reactive baseline plus four prewarming predictor policies (EWMA, last-gap, moving-average, fixed-schedule) — of an identical real-time telemetry-ingestion service. Companion code and data for a manuscript in preparation (not yet submitted).
 
