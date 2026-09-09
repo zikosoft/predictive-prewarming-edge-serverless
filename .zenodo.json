@@ -1,0 +1,23 @@
+{
+  "title": "edge-faas-container-benchmark",
+  "description": "Open, reproducible benchmarking harness comparing an always-on container deployment against reactive and predictively pre-warmed (EWMA, last-gap, moving-average, fixed-schedule) on-demand serverless deployments of an identical real-time telemetry-ingestion service, with matched-trial statistical analysis and a measured cost-latency model. Companion code and data for a manuscript in preparation.",
+  "creators": [
+    {
+      "name": "Abidi, Zakaria",
+      "orcid": "0009-0001-8692-4575",
+      "affiliation": "Independent Researcher"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": [
+    "serverless computing",
+    "cold start",
+    "predictive autoscaling",
+    "container orchestration",
+    "edge computing",
+    "reproducible research"
+  ],
+  "related_identifiers": [],
+  "access_right": "open"
+}

@@ -1,0 +1,7 @@
+policy,median_ms_capacity3,median_ms_capacity8,cold_rate_pct_capacity3,cold_rate_pct_capacity8,mean_queue_ms_capacity3,mean_queue_ms_capacity8
+Container,13.71,14.9,0.0,0.0,0.0,0.0
+Serverless (reactive),619.21,1908.21,20.0,53.33,481.46,857.42
+"Serverless (predictive, EWMA)",597.02,1762.98,16.8,50.13,344.73,516.78
+"Serverless (predictive, last-gap)",571.37,1778.75,16.8,50.04,326.37,506.61
+"Serverless (predictive, moving avg.)",574.7,1776.73,16.53,50.13,337.44,522.45
+"Serverless (predictive, fixed-schedule)",153.13,1545.89,14.67,48.0,170.69,199.33

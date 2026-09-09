@@ -1,0 +1,63 @@
+# Real Kubernetes Deployment of the SAME application code used in the
+# process-level emulation -- the "container" (always-on) architecture
+# on genuine infrastructure: 3 persistent pods, never scaled to zero.
+#
+# Service type is LoadBalancer (not the usual ClusterIP) specifically
+# so it is reachable from the Windows host at http://localhost:8080,
+# the same way Kourier's LoadBalancer exposes the Knative Service --
+# this keeps both architectures reachable the same way from
+# real-infra/loadgen_real.py, which runs on the host, not in-cluster.
+# Docker Desktop maps LoadBalancer external IPs to localhost
+# automatically; no MetalLB or cloud load balancer is needed.
+#
+#   kubectl apply -f real-infra/k8s/container-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-container
+  labels:
+    app: telemetry-container
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: telemetry-container
+  template:
+    metadata:
+      labels:
+        app: telemetry-container
+    spec:
+      containers:
+        - name: telemetry-app
+          image: telemetry-app:bench
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INSTANCE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: telemetry-container-svc
+spec:
+  selector:
+    app: telemetry-container
+  ports:
+    - port: 8080
+      targetPort: 8000
+  type: LoadBalancer

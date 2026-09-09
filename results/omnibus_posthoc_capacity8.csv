@@ -1,0 +1,6 @@
+test,statistic,p_value,pair,median_reactive,median_other,pct_change_vs_reactive,wilcoxon_paired_p
+kruskal_wallis_omnibus,68.223,2.40005740128502e-13,,,,,
+mannwhitney,180.0,0.005452139856940547,reactive_vs_serverless_predictive_ewma,1904.1002260000823,1749.3325229997936,-8.1,0.01806640625
+mannwhitney,217.0,1.6053092802023668e-05,reactive_vs_serverless_predictive_lastgap,1904.1002260000823,1759.279122999942,-7.6,6.103515625e-05
+mannwhitney,204.0,0.0001603262273507153,reactive_vs_serverless_predictive_movavg,1904.1002260000823,1756.332195998766,-7.8,0.00115966796875
+mannwhitney,225.0,3.3918213908250945e-06,reactive_vs_serverless_predictive_fixed,1904.1002260000823,1545.8886199994597,-18.8,6.103515625e-05

@@ -1,0 +1,5 @@
+policy,n_trials,n_opportunities_total,pooled_MAE_s,pooled_median_AE_s,pooled_signed_bias_s,pooled_median_signed_error_s,trial_level_MAE_median_s,trial_level_MAE_min_s,trial_level_MAE_max_s
+serverless_predictive_ewma,15,45,0.6637,0.6974,0.3049,0.4416,0.6639,0.2456,1.0979
+serverless_predictive_lastgap,15,45,0.5347,0.4834,0.1687,0.168,0.518,0.2245,0.8311
+serverless_predictive_movavg,15,45,0.6533,0.6059,0.3106,0.4956,0.6969,0.2199,0.934
+serverless_predictive_fixed,15,60,0.4938,0.4886,0.0357,0.0571,0.4907,0.1723,0.8723

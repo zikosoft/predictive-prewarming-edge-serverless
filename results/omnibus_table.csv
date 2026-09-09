@@ -1,0 +1,4 @@
+scenario,n_trials_per_policy,H_statistic,p_value,significant_at_0.05
+low,5,3.66,0.16041356777517246,False
+moderate,5,1.86,0.3945537103715998,False
+cyclical,15,65.25,9.964152496090578e-13,True

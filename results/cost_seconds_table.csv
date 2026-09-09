@@ -1,0 +1,7 @@
+policy,mean_cpu_seconds_per_trial,mean_gb_seconds_per_trial,mean_wasted_prewarms_per_trial,mean_predictive_cold_starts_per_trial
+Container,0.358,7.212,0.0,0.0
+Serverless (reactive),5.678,5.237,0.0,0.0
+"Serverless (predictive, EWMA)",5.399,5.307,0.0,2.4
+"Serverless (predictive, last-gap)",6.151,5.304,0.0,2.4
+"Serverless (predictive, moving avg.)",5.37,5.304,0.0,2.6
+"Serverless (predictive, fixed-schedule)",6.772,5.354,0.0,4.0

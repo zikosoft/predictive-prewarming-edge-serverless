@@ -1,0 +1,4 @@
+scenario,k_policies,n_trials,friedman_chi2,df,p_value,significant_at_0.05
+low,3,5,1.6000000000000014,2,0.44932896411722134,False
+moderate,3,5,0.4000000000000057,2,0.8187307530779795,False
+cyclical,6,15,56.48571428571432,5,6.454533302156027e-11,True

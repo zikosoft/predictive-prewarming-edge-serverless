@@ -1,0 +1,2 @@
+scenario,k_policies,n_trials,friedman_chi2,df,p_value,significant_at_0.05
+cyclical_capacity8,6,15,57.552380952380986,5,3.8905273019390894e-11,True

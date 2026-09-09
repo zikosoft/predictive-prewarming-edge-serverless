@@ -1,0 +1,21 @@
+# Local reproduction of the container-based (persistent) architecture
+# using real Docker containers, for environments with normal registry
+# access (see README.md and manuscript Section 3.2 for why the
+# reported results were instead produced with process-level
+# emulation in a sandboxed benchmarking environment).
+services:
+  telemetry-1:
+    build: ./app
+    environment:
+      - INSTANCE_ID=container-1
+    ports: ["9001:8000"]
+  telemetry-2:
+    build: ./app
+    environment:
+      - INSTANCE_ID=container-2
+    ports: ["9002:8000"]
+  telemetry-3:
+    build: ./app
+    environment:
+      - INSTANCE_ID=container-3
+    ports: ["9003:8000"]

@@ -1,0 +1,56 @@
+# Container-based (persistent) deployment — for reproduction on
+# unrestricted infrastructure with registry access. Build & push
+# app/Dockerfile first, then set `image:` below accordingly.
+#
+#   docker build -t <registry>/telemetry-app:bench app/
+#   docker push <registry>/telemetry-app:bench
+#   kubectl apply -f k8s/container-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-container
+  labels:
+    app: telemetry-container
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: telemetry-container
+  template:
+    metadata:
+      labels:
+        app: telemetry-container
+    spec:
+      containers:
+        - name: telemetry-app
+          image: telemetry-app:bench
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INSTANCE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            initialDelaySeconds: 1
+            periodSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: telemetry-container-svc
+spec:
+  selector:
+    app: telemetry-container
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: ClusterIP

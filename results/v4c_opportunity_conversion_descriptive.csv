@@ -1,0 +1,5 @@
+policy,n_trials,mean_conversion_rate,median_conversion_rate,min_conversion_rate,max_conversion_rate,mean_predictive_cold_starts,mean_reactive_cold_starts,mean_wasted_prewarms,policy_label
+serverless_predictive_ewma,15,0.8,1.0,0.0,1.0,2.4,12.6,0.0,EWMA
+serverless_predictive_fixed,15,1.0,1.0,1.0,1.0,4.0,11.0,0.0,Fixed-schedule
+serverless_predictive_lastgap,15,0.8,0.6666666666666666,0.3333333333333333,1.0,2.4,12.6,0.0,Last-gap
+serverless_predictive_movavg,15,0.8666666666666667,1.0,0.3333333333333333,1.0,2.6,12.4,0.0,Moving-average

@@ -1,0 +1,36 @@
+# Serverless (on-demand, scale-to-zero) deployment — Knative Serving.
+# For reproduction on unrestricted infrastructure with a Knative
+# cluster and registry access (this is the real-platform equivalent
+# of gateway/faas_gateway.py used in the sandboxed benchmark run;
+# see manuscript Section 3.2).
+#
+#   kubectl apply -f k8s/knative-service.yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: telemetry-serverless
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "10"
+        autoscaling.knative.dev/target: "10"
+        # idle window before scale-to-zero, matches IDLE_TIMEOUT_S=8s
+        # used in the process-level emulation for comparability
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "8s"
+    spec:
+      containers:
+        - image: telemetry-app:bench
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INSTANCE_ID
+              value: "knative"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"

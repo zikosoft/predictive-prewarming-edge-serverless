@@ -1,0 +1,46 @@
+{
+  "steady_light_load_note": "The 'low' scenario is 5 req/s of continuous traffic, NOT an idle baseline -- there is no genuinely idle scenario in this workload suite by design.",
+  "steady_light_load_container_cpu_seconds_per_trial": 0.204,
+  "steady_light_load_reactive_cpu_seconds_per_trial": 0.587,
+  "steady_light_load_container_gb_seconds_per_trial": 1.909,
+  "steady_light_load_reactive_gb_seconds_per_trial": 1.184,
+  "cyclical_pareto_frontier_cpu_seconds_vs_sla_violation": [
+    {
+      "policy": "Container",
+      "mean_cpu_seconds_per_trial": 0.358,
+      "violation_rate_pct_gt_100ms": 0.0,
+      "violation_rate_reduction_vs_reactive_pp": 100.0
+    },
+    {
+      "policy": "Serverless (reactive)",
+      "mean_cpu_seconds_per_trial": 5.678,
+      "violation_rate_pct_gt_100ms": 100.0,
+      "violation_rate_reduction_vs_reactive_pp": 0.0
+    },
+    {
+      "policy": "Serverless (predictive, EWMA)",
+      "mean_cpu_seconds_per_trial": 5.399,
+      "violation_rate_pct_gt_100ms": 83.47,
+      "violation_rate_reduction_vs_reactive_pp": 16.53
+    },
+    {
+      "policy": "Serverless (predictive, last-gap)",
+      "mean_cpu_seconds_per_trial": 6.151,
+      "violation_rate_pct_gt_100ms": 83.73,
+      "violation_rate_reduction_vs_reactive_pp": 16.27
+    },
+    {
+      "policy": "Serverless (predictive, moving avg.)",
+      "mean_cpu_seconds_per_trial": 5.37,
+      "violation_rate_pct_gt_100ms": 83.73,
+      "violation_rate_reduction_vs_reactive_pp": 16.27
+    },
+    {
+      "policy": "Serverless (predictive, fixed-schedule)",
+      "mean_cpu_seconds_per_trial": 6.772,
+      "violation_rate_pct_gt_100ms": 67.82,
+      "violation_rate_reduction_vs_reactive_pp": 32.18
+    }
+  ],
+  "decision_rule": "Adopt a predictive pre-warming policy over the purely reactive one whenever: (cost_per_SLA_violation / cost_per_CPU_second) > (policy_extra_CPU_seconds_per_trial) / (violation_rate_reduction_pp/100 * requests_per_trial). Plug in your own cost-per-violation and cost-per-CPU-second; the measured numerator/denominator for each policy are in the Pareto frontier above and in cost_seconds_table.csv / roi_table.csv."
+}

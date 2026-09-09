@@ -1,0 +1,4 @@
+policy,scenario,trial,cold_starts,predictive_cold_starts,reactive_cold_starts,warm_hits,wasted_prewarms,spawn_failures,gap_observations,pool_size,predicted_gap_s,predictor,predictive
+learning_extended:serverless_predictive_lastgap,learning_cyclical,0,75,16,59,316,0,0,24,3,8.80946159362793,lastgap,True
+learning_extended:serverless_predictive_movavg,learning_cyclical,0,75,19,56,319,0,0,24,3,9.34093689918518,movavg,True
+learning_extended:serverless_predictive_fixed,learning_cyclical,0,75,24,51,324,0,0,24,3,9.0,fixed,True

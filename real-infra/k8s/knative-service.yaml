@@ -1,0 +1,50 @@
+# Real Knative Serving deployment of the SAME application code used in
+# the process-level emulation (app/telemetry_app.py). This is the
+# "serverless (reactive)" architecture on genuine infrastructure --
+# Knative's own activator/autoscaler does the scale-to-zero and
+# cold-start handling natively, no custom gateway code involved.
+#
+# containerConcurrency=1 + target=1 mirror the emulation's semantics
+# (each instance handles one in-flight request at a time, matching a
+# concurrency=1 FaaS execution model). maxScale=3 matches
+# MAX_INSTANCES=3 in the emulation for direct comparability.
+#
+# window / scale-to-zero-pod-retention-period = 6s matches
+# IDLE_TIMEOUT_S=6.0 in the emulation. 6s is Knative's documented
+# floor for the stabilization window (see real-infra/README.md) -- you
+# cannot set it lower.
+#
+#   kubectl apply -f real-infra/k8s/knative-service.yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: telemetry-serverless
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "3"
+        autoscaling.knative.dev/target: "1"
+        autoscaling.knative.dev/window: "6s"
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "6s"
+    spec:
+      containerConcurrency: 1
+      containers:
+        - image: telemetry-app:bench
+          ports:
+            - containerPort: 8000
+          env:
+            - name: INSTANCE_ID
+              value: "knative-real"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet: { path: /health, port: 8000 }
+            periodSeconds: 1

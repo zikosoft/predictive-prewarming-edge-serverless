@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software or the data it produced, please cite it using the metadata below."
+type: software
+title: "edge-faas-container-benchmark"
+abstract: >-
+  Open, reproducible benchmarking harness comparing an always-on
+  container deployment against reactive and predictively pre-warmed
+  (EWMA, last-gap, moving-average, fixed-schedule) on-demand serverless
+  deployments of an identical real-time telemetry-ingestion service,
+  with matched-trial statistical analysis and a measured cost-latency
+  model.
+authors:
+  - family-names: "Abidi"
+    given-names: "Zakaria"
+    orcid: "https://orcid.org/0009-0001-8692-4575"
+license: MIT
+repository-code: "https://github.com/<GITHUB_USERNAME>/edge-faas-container-benchmark"
+version: "3.0.0"
+date-released: "2026-09-03"
+keywords:
+  - serverless computing
+  - cold start
+  - predictive autoscaling
+  - container orchestration
+  - edge computing
+  - reproducible research

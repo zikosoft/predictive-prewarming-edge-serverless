@@ -1,0 +1,51 @@
+policy,cycle_index,n_cold_starts,n_requests
+Serverless (reactive),1,3,15
+Serverless (reactive),2,3,15
+Serverless (reactive),3,3,15
+Serverless (reactive),4,3,15
+Serverless (reactive),5,3,15
+Serverless (reactive),6,3,15
+Serverless (reactive),7,3,15
+Serverless (reactive),8,3,15
+Serverless (reactive),9,3,15
+Serverless (reactive),10,3,15
+Serverless (reactive),11,3,15
+Serverless (reactive),12,3,15
+Serverless (reactive),13,3,15
+Serverless (reactive),14,3,15
+Serverless (reactive),15,3,15
+Serverless (reactive),16,3,15
+Serverless (reactive),17,3,15
+Serverless (reactive),18,3,15
+Serverless (reactive),19,3,15
+Serverless (reactive),20,3,15
+Serverless (reactive),21,3,15
+Serverless (reactive),22,3,15
+Serverless (reactive),23,3,15
+Serverless (reactive),24,3,15
+Serverless (reactive),25,3,15
+"Serverless (predictive, EWMA)",1,3,15
+"Serverless (predictive, EWMA)",2,3,15
+"Serverless (predictive, EWMA)",3,2,15
+"Serverless (predictive, EWMA)",4,3,15
+"Serverless (predictive, EWMA)",5,2,15
+"Serverless (predictive, EWMA)",6,2,15
+"Serverless (predictive, EWMA)",7,2,15
+"Serverless (predictive, EWMA)",8,2,15
+"Serverless (predictive, EWMA)",9,2,15
+"Serverless (predictive, EWMA)",10,2,15
+"Serverless (predictive, EWMA)",11,2,15
+"Serverless (predictive, EWMA)",12,2,15
+"Serverless (predictive, EWMA)",13,2,15
+"Serverless (predictive, EWMA)",14,2,15
+"Serverless (predictive, EWMA)",15,2,15
+"Serverless (predictive, EWMA)",16,2,15
+"Serverless (predictive, EWMA)",17,3,15
+"Serverless (predictive, EWMA)",18,2,15
+"Serverless (predictive, EWMA)",19,2,15
+"Serverless (predictive, EWMA)",20,2,15
+"Serverless (predictive, EWMA)",21,2,15
+"Serverless (predictive, EWMA)",22,2,15
+"Serverless (predictive, EWMA)",23,3,15
+"Serverless (predictive, EWMA)",24,2,15
+"Serverless (predictive, EWMA)",25,2,15

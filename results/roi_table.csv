@@ -1,0 +1,7 @@
+policy,n_requests_cyclical,violation_rate_pct_gt_50ms,violation_rate_pct_gt_100ms,violation_rate_pct_gt_200ms
+Container,1125,0.0,0.0,0.0
+Serverless (reactive),1125,100.0,100.0,100.0
+"Serverless (predictive, EWMA)",1125,91.73,83.47,67.29
+"Serverless (predictive, last-gap)",1125,92.0,83.73,65.6
+"Serverless (predictive, moving avg.)",1125,91.91,83.73,67.11
+"Serverless (predictive, fixed-schedule)",1125,84.0,67.82,34.84

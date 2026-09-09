@@ -1,0 +1,7 @@
+policy,n_trials,median_of_trial_medians_ms,mean_cold_starts_per_trial,wilcoxon_vs_reactive_p,pct_change_vs_reactive
+Container,15,13.74,0.0,6.103515625e-05,-97.8
+Serverless (reactive),15,620.42,15.0,,
+"Serverless (predictive, EWMA)",15,563.81,12.6,0.03533935546875,-9.1
+"Serverless (predictive, last-gap)",15,558.75,12.6,0.0067138671875,-9.9
+"Serverless (predictive, moving avg.)",15,495.23,12.4,0.01806640625,-20.2
+"Serverless (predictive, fixed-schedule)",15,153.54,11.0,6.103515625e-05,-75.3

@@ -1,0 +1,16 @@
+scenario,pair,n_a,n_b,median_a_ms,median_b_ms,U,p_mannwhitney_raw,effect_size_rank_biserial,wilcoxon_paired_p,p_mannwhitney_holm_adjusted,significant_at_0.05
+low,Container vs Serverless (reactive),5,5,2.57,2.88,5.0,0.15079365079365079,0.6,0.3125,0.45238095238095233,False
+low,"Container vs Serverless (predictive, EWMA)",5,5,2.57,2.72,7.0,0.30952380952380953,0.44,0.3125,0.45238095238095233,False
+low,"Serverless (reactive) vs Serverless (predictive, EWMA)",5,5,2.88,2.72,19.0,0.2222222222222222,-0.52,0.4375,0.45238095238095233,False
+moderate,Container vs Serverless (reactive),5,5,2.52,2.51,13.0,1.0,-0.04,1.0,1.0,False
+moderate,"Container vs Serverless (predictive, EWMA)",5,5,2.52,2.69,8.0,0.42063492063492064,0.36,0.625,0.8412698412698413,False
+moderate,"Serverless (reactive) vs Serverless (predictive, EWMA)",5,5,2.51,2.69,6.0,0.2222222222222222,0.52,0.4375,0.6666666666666666,False
+cyclical,Container vs Serverless (reactive),15,15,13.74,620.42,0.0,3.3918213908250945e-06,1.0,6.103515625e-05,3.052639251742585e-05,True
+cyclical,"Container vs Serverless (predictive, EWMA)",15,15,13.74,563.81,0.0,3.3918213908250945e-06,1.0,6.103515625e-05,3.052639251742585e-05,True
+cyclical,"Container vs Serverless (predictive, last-gap)",15,15,13.74,558.75,0.0,3.3918213908250945e-06,1.0,6.103515625e-05,3.052639251742585e-05,True
+cyclical,"Container vs Serverless (predictive, moving avg.)",15,15,13.74,495.23,0.0,3.3918213908250945e-06,1.0,6.103515625e-05,3.052639251742585e-05,True
+cyclical,"Container vs Serverless (predictive, fixed-schedule)",15,15,13.74,153.54,0.0,3.3918213908250945e-06,1.0,6.103515625e-05,3.052639251742585e-05,True
+cyclical,"Serverless (reactive) vs Serverless (predictive, EWMA)",15,15,620.42,563.81,156.0,0.0744956919139866,-0.387,0.03533935546875,0.11278472845366314,False
+cyclical,"Serverless (reactive) vs Serverless (predictive, last-gap)",15,15,620.42,558.75,183.0,0.0036905851986807135,-0.627,0.0067138671875,0.01107175559604214,True
+cyclical,"Serverless (reactive) vs Serverless (predictive, moving avg.)",15,15,620.42,495.23,159.0,0.05639236422683157,-0.413,0.01806640625,0.11278472845366314,False
+cyclical,"Serverless (reactive) vs Serverless (predictive, fixed-schedule)",15,15,620.42,153.54,225.0,3.3918213908250945e-06,-1.0,6.103515625e-05,3.052639251742585e-05,True

@@ -1,0 +1,7 @@
+comparison,n_pairs,median_a,median_b,median_diff,wilcoxon_W,p_raw,p_holm_adjusted,significant_at_0.05_after_holm6
+EWMA vs Last-gap,15,1.0,0.6666666666666666,0.0,3.0,1.0,1.0,False
+EWMA vs Moving-average,15,1.0,1.0,0.0,1.5,0.4142161782425252,0.8284323564850504,False
+EWMA vs Fixed-schedule,15,1.0,1.0,0.0,0.0,0.023544102412552784,0.11772051206276392,False
+Last-gap vs Moving-average,15,0.6666666666666666,1.0,0.0,0.0,0.0832645166635504,0.24979354999065123,False
+Last-gap vs Fixed-schedule,15,0.6666666666666666,1.0,-0.33333333333333337,0.0,0.006655605482949377,0.03993363289769626,True
+Moving-average vs Fixed-schedule,15,1.0,1.0,0.0,0.0,0.03389485352468927,0.13557941409875707,False

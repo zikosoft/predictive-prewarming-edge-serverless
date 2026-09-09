@@ -1,0 +1,3 @@
+policy,scenario,trial,cold_starts,predictive_cold_starts,reactive_cold_starts,warm_hits,wasted_prewarms,spawn_failures,gap_observations,pool_size,predicted_gap_s,predictor,predictive
+learning:serverless_reactive,learning_cyclical,0,75,0,75,300,0,0,24,3,9.759975185484338,ewma,False
+learning:serverless_predictive_ewma,learning_cyclical,0,75,20,55,320,0,0,24,3,9.53025470012913,ewma,True

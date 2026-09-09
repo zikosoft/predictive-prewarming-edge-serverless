@@ -1,0 +1,14 @@
+# Cluster-wide floor for Knative's scale-to-zero timing, applied with:
+#   kubectl patch configmap/config-autoscaler -n knative-serving --type merge --patch-file real-infra/k8s/autoscaler-configmap-patch.yaml
+#
+# 6s is Knative's documented minimum for stable-window (enforced in
+# code: the autoscaler's tick interval is 2s, so a shorter window
+# cannot collect enough data points). This matches
+# IDLE_TIMEOUT_S=6.0 in the process-level emulation. Without this
+# patch, Knative's default 60s stable-window / 30s grace period would
+# make the cyclical scenario's 8-10s idle gaps never actually trigger
+# a real scale-to-zero, and the "reactive" real-infra run would not be
+# comparable to the emulation at all.
+data:
+  stable-window: "6s"
+  scale-to-zero-grace-period: "6s"

@@ -1,0 +1,7 @@
+policy,mean_queue_ms,mean_cold_ms,mean_service_ms,mean_total_ms,pct_requests_with_nonzero_queue
+Container,0.0,0.0,8.99,15.8,0.0
+Serverless (reactive),857.42,1017.68,6.27,1914.84,46.67
+"Serverless (predictive, EWMA)",516.78,895.67,6.6,1450.08,47.29
+"Serverless (predictive, last-gap)",506.61,896.09,6.78,1440.46,47.29
+"Serverless (predictive, moving avg.)",522.45,896.07,6.71,1456.87,47.38
+"Serverless (predictive, fixed-schedule)",199.33,810.46,7.04,1046.25,46.67

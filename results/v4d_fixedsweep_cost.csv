@@ -1,0 +1,7 @@
+label,cpu_s,gb_s
+serverless_predictive_fixed:cyclical:0,1193.0842213664055,148.61385539598064
+serverless_predictive_fixed:cyclical:1,1231.1818998641968,150.6885657325201
+serverless_predictive_fixed:cyclical:2,1203.5711209793092,149.10922996831007
+serverless_predictive_fixed:cyclical:3,1226.9882883616685,148.88575981441886
+serverless_predictive_fixed:cyclical:4,1247.1493990591766,148.28349514373463
+serverless_predictive_fixed:cyclical:5,1192.7530782128572,150.62258420319762

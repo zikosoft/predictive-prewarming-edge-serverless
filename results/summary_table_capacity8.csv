@@ -1,0 +1,7 @@
+policy,n_trials,n_requests,n_ok,n_cold_starts,cold_start_rate_pct,p50_ms,p95_ms,mean_ms
+Container,15,1125,1125,0,0.0,14.9,22.67,15.8
+Serverless (reactive),15,1125,1125,600,53.33,1908.21,2117.38,1914.84
+"Serverless (predictive, EWMA)",15,1125,1125,564,50.13,1762.98,2062.13,1450.08
+"Serverless (predictive, last-gap)",15,1125,1125,563,50.04,1778.75,2104.05,1440.46
+"Serverless (predictive, moving avg.)",15,1125,1125,564,50.13,1776.73,2085.53,1456.87
+"Serverless (predictive, fixed-schedule)",15,1125,1125,540,48.0,1545.89,1963.62,1046.25
