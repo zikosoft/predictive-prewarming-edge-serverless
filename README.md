@@ -1,4 +1,7 @@
 # predictive-prewarming-edge-serverless
+[![DOI](https://zenodo.org/badge/1363293762.svg)](https://doi.org/10.5281/zenodo.22759045)
+
+Open, fully reproducible benchmarking harness comparing an **always-on container**...
 
 Open, fully reproducible benchmarking harness comparing an **always-on container** deployment against **on-demand (scale-to-zero) serverless-style** deployments — a purely reactive baseline plus four prewarming predictor policies (EWMA, last-gap, moving-average, fixed-schedule) — of an identical real-time telemetry-ingestion service. Companion code and data for a manuscript in preparation (not yet submitted).
 
@@ -107,17 +110,8 @@ If a predictive policy's earlier data ever needs re-generating in isolation (e.g
 
 ## Data availability & citation
 
-Raw data and code: this repository. See `CITATION.cff` for citation metadata. An archived, versioned release with a citable DOI will be minted via Zenodo once the corrected protocol above (and, if available, the `real-infra/` validation) is finalized — **deliberately not yet archived**, since a DOI is permanent and the previous protocol had a confirmed measurement bug (see "What changed after external review").
+Raw data and code: this repository. See `CITATION.cff` for citation metadata. Archived, versioned release: [10.5281/zenodo.22759044](https://doi.org/10.5281/zenodo.22759044) (tag `v1.0.0`).
 
 ## License
 
 MIT — see `LICENSE`.
-
-## Release checklist (for the maintainer)
-
-1. Run `real-infra/` on genuine Kubernetes/Knative infrastructure (or explicitly decide to submit on process-level-emulation results alone, clearly labeled as such, which is the current state of the manuscript).
-2. Manuscript rebuilt from the corrected results (`paper/build_docx.js`) — done; re-run this step if `results/` changes again.
-3. `git tag v1.0.0 && git push --tags`.
-4. Connect the repo to [Zenodo](https://zenodo.org/account/settings/github/) and create a DOI for the tagged release (`.zenodo.json` in this repo pre-fills the archive's metadata).
-5. Add the DOI badge to the top of this README and to the manuscript's Data Availability statement.
-6. Optionally submit a short companion "software" paper (e.g. to JOSS) describing this harness itself as a citable, reusable artifact.
