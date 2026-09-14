@@ -1,8 +1,7 @@
 """
-Round-2 revision: two REAL (not simulated/estimated) pilot sweeps
-requested by the FGCS Round-2 feedback, reusing the exact, already-
-debugged measurement path from orchestrate_and_run.py (same
-run_policy_scenario_independent / run_scenario / send_one functions --
+Round-2 revision: two REAL (not simulated/estimated) pilot sweeps, 
+reusing the exact, already-debugged measurement path from orchestrate_and_run.py 
+(same run_policy_scenario_independent / run_scenario / send_one functions --
 nothing about how a request is timed or classified is changed here,
 only which env-var condition is active per run, to minimize the risk
 of introducing a new measurement bug while extending the harness).

@@ -1,6 +1,4 @@
 """
-Round-3 (FGCS finalization pass) — A3: direct forecast-quality metrics.
-
 Downstream latency alone cannot distinguish "the forecaster is inaccurate"
 from "the forecaster is accurate but the independent-trial protocol denies
 it an opportunity to act" (Section 5.5's opportunity-window asymmetry).

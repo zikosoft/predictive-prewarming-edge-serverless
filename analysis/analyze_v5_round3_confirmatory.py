@@ -1,5 +1,5 @@
 """
-Round-3 (FGCS finalization pass) -- analysis of the A4 (keep-alive N=15
+Analysis of the A4 (keep-alive N=15
 confirmatory) and A5 (fixed-schedule N=15 confirmatory sensitivity sweep)
 experiments produced by loadgen/orchestrate_round3_confirmatory.py.
 

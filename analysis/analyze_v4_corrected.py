@@ -1,7 +1,5 @@
 """
-Statistical reanalysis (v4), written in direct response to the FGCS
-Round-2 revision feedback (external methodological critique of the
-revision package, not of the raw data itself). This script does NOT
+Statistical reanalysis (v4). This script does NOT
 change how the experiment was run or how latency was measured -- it
 re-analyzes the same trial-level medians already produced by
 `analyze.py` (`results/trial_level_table.csv`) with a corrected

@@ -220,17 +220,6 @@ async def run_scenario(session, scenario_name, spec, target_urls_fn, rows_out, r
             tasks.extend(burst_tasks)
             await asyncio.gather(*burst_tasks)  # let this cycle's burst fully settle before starting the next idle timer
     elif spec["kind"] == "bimodal":
-        # Round-3 (FGCS finalization pass, A6): non-periodic idle-gap
-        # workload. Each cycle independently, stochastically picks a
-        # "short" or "long" silence mode (no fixed period, no bound
-        # close to the primary cyclical scenario's narrow 8-10s jitter
-        # window) -- deliberately testing whether the primary ranking
-        # and fixed-schedule's advantage survive when the workload is
-        # no longer close to periodic. Same burst size and MAX_INSTANCES
-        # cap as the primary scenario; only the idle-gap distribution
-        # changes. rng.choice() draws from the SAME per-trial RNG as the
-        # rest of the cycle so the mode sequence stays seed-matched
-        # across policies, preserving the paired design.
         for c in range(spec["n_cycles"]):
             mode = rng.choice(["short", "long"])
             if mode == "short":

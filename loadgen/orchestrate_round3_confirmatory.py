@@ -1,5 +1,5 @@
 """
-Round-3 (FGCS finalization pass) — A4 + A5: confirmatory N=15 reruns of
+Confirmatory N=15 reruns of
 the two Round-2 N=6 pilot sweeps, using the identical, unmodified
 measurement path (orchestrate_and_run.py's run_policy_scenario_independent
 -- nothing about how a request is timed/classified changes here, only

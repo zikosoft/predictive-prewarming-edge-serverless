@@ -47,8 +47,7 @@ Produces (results/):
   fig_resource.png / .pdf
 Every number is computed directly from results/raw/*.csv,
 results/raw_learning/*.csv and results/gateway_stats.csv -- nothing is
-hand-typed. Figures are saved at 600 DPI PNG (well above FGCS's stated
-minimum for line drawings) plus a matching vector PDF.
+hand-typed. Figures are saved at 600 DPI PNG plus a matching vector PDF.
 """
 import glob
 import os

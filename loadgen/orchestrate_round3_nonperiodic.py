@@ -1,12 +1,4 @@
 """
-Round-3 (FGCS finalization pass) — A6: one genuinely non-periodic
-workload, run against all seven policies the revision plan asks for
-(container, reactive, keep-alive-10s, EWMA, last-gap, moving-average,
-fixed-schedule), N=15 independent seed-matched trials each, using the
-identical measurement path as the primary run (only the workload
-generator's idle-gap distribution changes -- see the new "bimodal"
-branch added to loadgen/orchestrate_and_run.py's run_scenario()).
-
 Design (bimodal / drifting idle-gap, no fixed period):
   each cycle independently draws "short" mode (idle ~ Uniform(2, 6) s)
   or "long" mode (idle ~ Uniform(10, 18) s) with equal probability, via

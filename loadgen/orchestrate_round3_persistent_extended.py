@@ -1,5 +1,5 @@
 """
-Round-3 (FGCS finalization pass) — A9: extend the persistent-state
+Extend the persistent-state
 (no-reset, 25-cycle) learning-curve run from EWMA-only to the three
 remaining adaptive/non-adaptive predictors (last-gap, moving-average,
 fixed-schedule), so the paper's central methodological claim --

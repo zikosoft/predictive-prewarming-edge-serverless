@@ -1,5 +1,5 @@
 """
-Round-3 (FGCS finalization pass) — A10: pre-warm safety-margin
+Pre-warm safety-margin
 (STARTUP_LEAD_S) sensitivity sweep, across all four predictive policies,
 so the main conclusions can be shown not to depend on one arbitrarily
 generous 1.0s margin. N=6 independent trials per (policy, margin) pair --

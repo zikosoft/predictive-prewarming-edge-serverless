@@ -1,22 +1,3 @@
-"""
-Round-3 (FGCS finalization pass) — A8: re-analyze the existing
-MAX_INSTANCES=8 supplementary-capacity data with the SAME corrected
-paired method used for the primary MAX_INSTANCES=3 comparison
-(analysis/analyze_v4_corrected.py), replacing the old unpaired
-Mann-Whitney / "pending paired revision" language.
-
-No new experiment is run here: results/trial_level_table_capacity8.csv
-already holds the trial-level medians from the MAX_INSTANCES=8 run
-(loadgen/orchestrate_capacity_sweep.py, already executed in an earlier
-pass). This script reuses analyze_v4_corrected.py's exact paired-stats
-implementation (Hodges-Lehmann via Walsh averages, matched-pairs
-rank-biserial from signed-rank sums, Holm correction) unchanged, so the
-capacity=8 numbers are directly comparable in method to Table 3/3b.
-
-Outputs (results/):
-  v5_capacity8_family_A_H4_vs_reactive.csv
-  v5_capacity8_friedman_omnibus.csv
-"""
 import os
 
 import pandas as pd

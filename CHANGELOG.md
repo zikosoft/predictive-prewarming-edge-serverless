@@ -6,9 +6,9 @@
 
 **Explicitly not changed:** the orchestrator (`loadgen/orchestrate_and_run.py`) still spawns the gateway and worker instances as local OS processes via `subprocess.Popen([sys.executable, ...])` — now inside the container instead of directly on the host, but structurally identical either way. Cold-start timing therefore remains process-spawn time throughout, never container-spawn time; this addition does not touch `gateway/elastic_gateway.py`, `gateway/container_gateway.py`, or any measurement code, and does not change what any of the reported results represent. It is unrelated in scope to the pre-existing `docker-compose.yml` / `app/Dockerfile`, which front real Docker containers for the persistent "always-on" architecture only, as a separate, narrower illustrative demo — that pair is untouched by this addition.
 
-## v5 — FGCS final scientific-strengthening pass (ten new/extended experiments, N=15 confirmatory upgrades, full-document consistency audit)
+## v5 — final scientific-strengthening pass (ten new/extended experiments, N=15 confirmatory upgrades, full-document consistency audit)
 
-A final pre-submission pass, run against the FGCS journal target specifically, that (a) upgraded four of v4's N=6 pilot-scale findings to N=15 confirmatory scale, (b) added three genuinely new analyses/experiments the v4 "not addressed" list had flagged as open, (c) reanalyzed one existing dataset under the corrected v4 statistical design, and (d) closed out the manuscript's editorial package (Abstract, Highlights). Every item below reuses the existing measurement harness (`loadgen/orchestrate_and_run.py`'s `run_policy_scenario_independent`) unchanged except for the one swept constant each experiment varies, consistent with every prior round's own stated design principle.
+A final review, that (a) upgraded four of v4's N=6 pilot-scale findings to N=15 confirmatory scale, (b) added three genuinely new analyses/experiments the v4 "not addressed" list had flagged as open, (c) reanalyzed one existing dataset under the corrected v4 statistical design, and (d) closed out the manuscript's editorial package (Abstract, Highlights). Every item below reuses the existing measurement harness (`loadgen/orchestrate_and_run.py`'s `run_policy_scenario_independent`) unchanged except for the one swept constant each experiment varies, consistent with every prior round's own stated design principle.
 
 ### 1. Direct forecast-quality metrics (Family C) — answers RQ3 from forecast error directly, not just downstream latency
 
@@ -52,7 +52,7 @@ A complete page-by-page visual re-read of the final 25-page merged document (bey
 
 ### 9. Abstract and Highlights rewritten; A7 (real-platform validation) reconfirmed not executable here
 
-The Abstract was rewritten once, after every item above was integrated, to include the primary paired result, the queueing mechanism, both N=15-confirmatory sweeps, the two-resource trade-off, and the emulation-scope disclosure, dropping the prior draft's revision-history narration (that narration remains in Section 4.4 and in this file). A five-bullet Highlights section was added. A7 (real Kubernetes/Knative validation) was re-confirmed not executable in this sandboxed environment (no running Docker daemon, registry access blocked, no kubectl/kind/minikube/k3s tooling, 2 vCPUs) — see `FGCS_Remaining_Blockers.md`.
+The Abstract was rewritten once, after every item above was integrated, to include the primary paired result, the queueing mechanism, both N=15-confirmatory sweeps, the two-resource trade-off, and the emulation-scope disclosure, dropping the prior draft's revision-history narration (that narration remains in Section 4.4 and in this file). A five-bullet Highlights section was added. A7 (real Kubernetes/Knative validation) was re-confirmed not executable in this sandboxed environment (no running Docker daemon, registry access blocked, no kubectl/kind/minikube/k3s tooling, 2 vCPUs).
 
 ## v4.1 — camera-ready manuscript rebuilt with the v4 corrections (figures and tables restored)
 
@@ -94,7 +94,7 @@ A second, deeper pre-submission methodological pass (after v3/v3.1's bug fixes) 
 
 ### Not addressed in this pass (remain open)
 
-Real Kubernetes/Knative validation (no cluster access in this environment); direct forecast-quality metrics (MAE, signed bias — requires new per-observation instrumentation not present in the current gateway code); persistent-state extension of the learning-curve run to last-gap and moving-average; a non-periodic (bimodal/drifting/trace-derived) workload variant. See `FGCS_Revision_Package_Round2.docx` for the complete audit.
+Real Kubernetes/Knative validation (no cluster access in this environment); direct forecast-quality metrics (MAE, signed bias — requires new per-observation instrumentation not present in the current gateway code); persistent-state extension of the learning-curve run to last-gap and moving-average; a non-periodic (bimodal/drifting/trace-derived) workload variant.
 
 ## v3.1 — second, deeper bug found only after v3's fix (prewarm trigger reference-frame mismatch)
 
