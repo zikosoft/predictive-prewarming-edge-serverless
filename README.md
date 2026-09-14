@@ -39,6 +39,7 @@ real-infra/     Kubernetes/Knative manifests + scripts for real-container/real-F
 paper/          the manuscript (build_docx.js regenerates it from the results/ artifacts)
 k8s/            Kubernetes / Knative manifests (also used by real-infra/)
 docker-compose.yml, app/Dockerfile   real-container reproduction of the persistent architecture
+Dockerfile.experiment, docker-compose.experiment.yml   full experiment in one container (see below)
 ```
 
 ## Reproducing the process-level-emulation results
@@ -58,6 +59,32 @@ python3 analysis/roi_model.py
 ```
 
 Total run time: on the order of 1.5-2 hours on 2+ vCPUs (dominated by the cyclical scenario's independent-trial protocol — see below). No external network access is required — everything runs on localhost.
+
+### Alternative: same experiment, one Docker command
+
+No local Python toolchain? `Dockerfile.experiment` packages the identical
+harness (same `requirements.txt` versions, same code, unmodified) into
+one image; the orchestrator still spawns the gateway and worker
+instances as local processes *inside* that container, so this changes
+nothing about what is measured — cold-start timing stays process-spawn
+time, not container-spawn time.
+
+```bash
+docker compose -f docker-compose.experiment.yml up --build
+```
+
+Results land in `./results` on the host (bind-mounted), same layout as
+the venv path above. To re-run only the analysis step against results
+already present, override the command:
+
+```bash
+docker compose -f docker-compose.experiment.yml run --rm experiment \
+  python3 analysis/analyze.py
+```
+
+This is separate in scope from `docker-compose.yml` (root), which fronts
+*real* Docker containers for the persistent "always-on" architecture
+only, as a narrower illustrative demo — not the full experiment.
 
 ## Experimental design (summary)
 

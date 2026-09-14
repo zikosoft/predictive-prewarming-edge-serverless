@@ -1,0 +1,31 @@
+# Full process-level-emulation reproduction in one container -- the
+# same experiment `python3 loadgen/orchestrate_and_run.py` runs in a
+# local venv (see README "Reproducing the process-level-emulation
+# results"), just packaged so it needs only Docker, not a Python
+# toolchain, on the host.
+#
+# Usage:
+#   docker compose -f docker-compose.experiment.yml up --build
+#
+# Runs the primary experiment (container + reactive + 4 predictor
+# policies, 3 scenarios) then regenerates every table/figure/cost-model
+# number, exactly as the two-command venv sequence in the README does.
+# Expect ~1.5-2h, matching the README's documented runtime. Results
+# land in ./results on the host (bind-mounted), so they survive after
+# the container exits and can be committed or inspected directly.
+#
+# To run only one step against results already on the host, e.g. to
+# regenerate figures without re-running the (slow) experiment:
+#   docker compose -f docker-compose.experiment.yml run --rm experiment \
+#     python3 analysis/analyze.py
+#
+# This is unrelated in scope to docker-compose.yml (root), which fronts
+# real Docker containers for the persistent "always-on" architecture
+# only, as a separate illustrative demo -- not the full experiment.
+services:
+  experiment:
+    build:
+      context: .
+      dockerfile: Dockerfile.experiment
+    volumes:
+      - ./results:/repo/results

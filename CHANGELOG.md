@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.1 — one-command Docker reproduction of the full experiment (packaging only, no measurement change)
+
+**Added:** `Dockerfile.experiment`, `docker-compose.experiment.yml`, `.dockerignore`. Packages the exact harness used to produce every result in `results/` (same `requirements.txt` pins, same `gateway/`, `loadgen/`, `analysis/` code, unmodified) into one Docker image, so `docker compose -f docker-compose.experiment.yml up --build` reproduces the full experiment without a local Python toolchain.
+
+**Explicitly not changed:** the orchestrator (`loadgen/orchestrate_and_run.py`) still spawns the gateway and worker instances as local OS processes via `subprocess.Popen([sys.executable, ...])` — now inside the container instead of directly on the host, but structurally identical either way. Cold-start timing therefore remains process-spawn time throughout, never container-spawn time; this addition does not touch `gateway/elastic_gateway.py`, `gateway/container_gateway.py`, or any measurement code, and does not change what any of the reported results represent. It is unrelated in scope to the pre-existing `docker-compose.yml` / `app/Dockerfile`, which front real Docker containers for the persistent "always-on" architecture only, as a separate, narrower illustrative demo — that pair is untouched by this addition.
+
 ## v5 — FGCS final scientific-strengthening pass (ten new/extended experiments, N=15 confirmatory upgrades, full-document consistency audit)
 
 A final pre-submission pass, run against the FGCS journal target specifically, that (a) upgraded four of v4's N=6 pilot-scale findings to N=15 confirmatory scale, (b) added three genuinely new analyses/experiments the v4 "not addressed" list had flagged as open, (c) reanalyzed one existing dataset under the corrected v4 statistical design, and (d) closed out the manuscript's editorial package (Abstract, Highlights). Every item below reuses the existing measurement harness (`loadgen/orchestrate_and_run.py`'s `run_policy_scenario_independent`) unchanged except for the one swept constant each experiment varies, consistent with every prior round's own stated design principle.

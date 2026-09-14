@@ -1,0 +1,39 @@
+# All-in-one image for the full process-level-emulation experiment
+# (gateway + load generator + analysis), for reviewers who want a
+# single `docker compose up` instead of a local Python venv.
+#
+# This does NOT change what is measured: inside the container, the
+# orchestrator (loadgen/orchestrate_and_run.py) still spawns the
+# gateway and worker instances as local OS processes via
+# subprocess.Popen([sys.executable, ...]) -- exactly as it does when
+# run directly on the host. Only the Python environment itself moves
+# into a container; cold-start timing is still process-spawn time, not
+# container-spawn time. See docker-compose.yml (root) for the separate,
+# narrower demo that fronts real Docker containers for the persistent
+# ("always-on") architecture only -- that one is not affected by this
+# file, and this file does not replace it.
+FROM python:3.11-slim
+
+WORKDIR /repo
+
+# Install pinned dependencies first so this layer is cached across
+# code-only changes.
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt --root-user-action=ignore
+
+# Bring in the harness. .dockerignore excludes results/, paper/, and
+# real-infra/ -- none are needed to run the experiment, and results/
+# is bind-mounted at run time so output lands on the host.
+COPY app/ app/
+COPY gateway/ gateway/
+COPY loadgen/ loadgen/
+COPY analysis/ analysis/
+
+RUN mkdir -p results/raw results/raw_learning
+
+# Default: run the full primary experiment, then regenerate every
+# table/figure/cost-model number from the results it just produced.
+# Override the command (`docker compose run experiment <cmd>`) to run
+# a single step instead, e.g. only `python3 analysis/analyze.py` on
+# already-mounted results.
+CMD ["sh", "-c", "python3 loadgen/orchestrate_and_run.py && python3 analysis/analyze.py && python3 analysis/roi_model.py"]
