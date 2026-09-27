@@ -110,7 +110,7 @@ If a predictive policy's earlier data ever needs re-generating in isolation (e.g
 
 ## Data availability & citation
 
-Raw data and code: this repository. See `CITATION.cff` for citation metadata. Archived, versioned release: [10.5281/zenodo.22759044](https://doi.org/10.5281/zenodo.22759044) (tag `v1.0.0`).
+Raw data and code: this repository. See `CITATION.cff` for citation metadata. Archived, versioned release: [10.5281/zenodo.22759044](https://doi.org/10.5281/zenodo.22998151) (tag `v1.1.0`).
 
 ## License
 

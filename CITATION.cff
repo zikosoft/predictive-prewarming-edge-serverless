@@ -1,5 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this software or the data it produced, please cite it using the metadata below."
+message: >-
+  If you use this software or the data it produced, please cite it using
+  the metadata below. This repository accompanies a manuscript currently
+  under review at the Journal of Parallel and Distributed Computing;
+  until it is published, please cite this software/dataset directly.
 type: software
 title: "predictive-prewarming-edge-serverless"
 abstract: >-
@@ -15,12 +19,15 @@ authors:
     orcid: "https://orcid.org/0009-0001-8692-4575"
 license: MIT
 repository-code: "https://github.com/zikosoft/predictive-prewarming-edge-serverless"
-version: "1.0.0"
-date-released: "2026-09-14"
+version: "1.1.0"
+date-released: "2026-09-27"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.22759044"
-    description: "Archived release of version 1.0.0"
+    value: "10.5281/zenodo.22998151"
+    description: "Archived release of version 1.1.0 (cited in the JPDC submission)"
+  - type: doi
+    value: "10.5281/zenodo.22759045"
+    description: "Archived release of version 1.0.0 (superseded)"
 keywords:
   - serverless computing
   - cold start
