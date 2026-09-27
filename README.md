@@ -3,7 +3,7 @@
 
 Open, fully reproducible benchmarking harness comparing an **always-on container**...
 
-Open, fully reproducible benchmarking harness comparing an **always-on container** deployment against **on-demand (scale-to-zero) serverless-style** deployments — a purely reactive baseline plus four prewarming predictor policies (EWMA, last-gap, moving-average, fixed-schedule) — of an identical real-time telemetry-ingestion service. Companion code and data for a manuscript in preparation (not yet submitted).
+Open, fully reproducible benchmarking harness comparing an **always-on container** deployment against **on-demand (scale-to-zero) serverless-style** deployments — a purely reactive baseline plus four prewarming predictor policies (EWMA, last-gap, moving-average, fixed-schedule) — of an identical real-time telemetry-ingestion service.
 
 Every number, table, and figure in the paper is generated from the raw CSVs in `results/raw/` and `results/raw_learning/` by `analysis/analyze.py` and `analysis/roi_model.py` — nothing is hand-typed. You can re-run the whole experiment and regenerate every result from scratch.
 
